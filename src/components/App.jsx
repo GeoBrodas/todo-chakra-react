@@ -1,6 +1,6 @@
 import React from "react";
 import { Heading, VStack, IconButton } from "@chakra-ui/react";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
 import Todolist from "./Todolist";
 import Addtodolist from "./Addtodolist";
 
