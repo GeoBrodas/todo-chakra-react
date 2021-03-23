@@ -1,8 +1,8 @@
-import React from "react";
-import { Heading, VStack, IconButton } from "@chakra-ui/react";
-import { FaSun } from "react-icons/fa";
-import Todolist from "./Todolist";
-import Addtodolist from "./Addtodolist";
+import React from 'react'
+import { Heading, VStack, IconButton } from '@chakra-ui/react'
+import { FaSun } from 'react-icons/fa'
+import Todolist from './Todolist'
+import Addtodolist from './Addtodolist'
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <Todolist />
       <Addtodolist />
     </VStack>
-  );
+  )
 }
 
-export default App;
+export default App

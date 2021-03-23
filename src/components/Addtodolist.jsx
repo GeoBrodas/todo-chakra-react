@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 function Addtodolist() {
-  return <div>Add</div>;
+  return <div>Add</div>
 }
 
-export default Addtodolist;
+export default Addtodolist
