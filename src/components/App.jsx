@@ -4,6 +4,7 @@ import { Heading, VStack, IconButton, useColorMode } from '@chakra-ui/react'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import Todolist from './Todolist'
 import Addtodolist from './Addtodolist'
+import Footer from './Footer'
 
 function App() {
   const [todos, setTodos] = useState(
@@ -49,6 +50,7 @@ function App() {
       </Heading>
       <Todolist todos={todos} deleteTodo={deleteTodo} />
       <Addtodolist addTodo={addTodo} />
+      <Footer />
     </VStack>
   )
 }
