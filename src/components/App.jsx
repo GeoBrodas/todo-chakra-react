@@ -23,6 +23,10 @@ function App() {
 
   const [todos, setTodos] = useState(initialTodos)
 
+  function addTodo(todo) {
+    setTodos([...todos, todo])
+  }
+
   function deleteTodo(id) {
     const newTodos = todos.filter((todo) => {
       return todo.id !== id
@@ -48,7 +52,7 @@ function App() {
         ToDo Application
       </Heading>
       <Todolist todos={todos} deleteTodo={deleteTodo} />
-      <Addtodolist />
+      <Addtodolist addTodo={addTodo} />
     </VStack>
   )
 }
