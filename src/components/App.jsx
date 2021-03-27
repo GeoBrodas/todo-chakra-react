@@ -1,27 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { Heading, VStack, IconButton } from '@chakra-ui/react'
-import { FaSun } from 'react-icons/fa'
+import { Heading, VStack, IconButton, useColorMode } from '@chakra-ui/react'
+import { FaMoon, FaSun } from 'react-icons/fa'
 import Todolist from './Todolist'
 import Addtodolist from './Addtodolist'
 
 function App() {
-  const initialTodos = [
-    {
-      id: '1',
-      name: 'Buy Paper',
-    },
-    {
-      id: '2',
-      name: 'Buy Milk',
-    },
-    {
-      id: '3',
-      name: 'Buy Eggs',
-    },
-  ]
+  const [todos, setTodos] = useState(
+    () => JSON.parse(localStorage.getItem('todos')) || []
+    //instead of rendering everytime uneccesarily we call it only once
+  )
 
-  const [todos, setTodos] = useState(initialTodos)
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+  //calls only when the todos array is changed and sets to localstorage
+
+  const { colorMode, toggleColorMode } = useColorMode()
 
   function addTodo(todo) {
     setTodos([...todos, todo])
@@ -37,10 +32,11 @@ function App() {
   return (
     <VStack p={4}>
       <IconButton
-        icon={<FaSun />}
+        icon={colorMode === 'light' ? <FaSun /> : <FaMoon />}
         isRound="true"
         size="lg"
         alignSelf="flex-end"
+        onClick={toggleColorMode}
       />
       <Heading
         mb="8"
